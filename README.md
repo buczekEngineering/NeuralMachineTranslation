@@ -1,8 +1,8 @@
 # Encoder-Decoder Neural-Machine-Translation 
-The implementation of neural machine translation using tesnorflow. 
+The implementation of the neural machine translation using tensorflow. 
 
 ## Run
-You can directly run train_gru.py or train_lstm.py, depnds on which neural network you want to use. GRU may be a little bit faster. The script contains data preprocessng, training, prediction on each epoch and evaluation.
+You can directly run train_gru.py or train_lstm.py, depends on which neural network you want to use. GRU may be a little bit faster. The script contains data preprocessng, training, prediction on each epoch and evaluation with bleu score.
 
 ## Required packages: 
 - numpy 1.19.5
@@ -10,16 +10,17 @@ You can directly run train_gru.py or train_lstm.py, depnds on which neural netwo
 - tensorflow 2.4.1
 
 ## Dataset
-The dataset "deu.txt" contains 208 486 pairs of English-German translations. It can be download here http://www.manythings.org/anki/ 
-The project should work also for other languages. If there is any problem with encoding, this parameters should be individually adjusted.
+The dataset "deu.txt" contains 208 486 pairs of English-German translations. It can be downloaded from here http://www.manythings.org/anki/ 
+The project should work also for other languages. If there is any problem with encoding, encoding should be individually adjusted.
 The encoding type for a specific dataset can be checked using chardet library https://chardet.readthedocs.io/en/latest/usage.html 
 
 ## Data preprocessing
-Before feeding the data into the Neural Network we must preporcess it: preprocess_data.py -> preprocess()
+Before feeding the data into the neural network we must preprocess it: preprocess_data.py -> preprocess()
 The preprocess script involved: 
 - creating encoder_input, decoder_input and decoder_output inputs
 - cleaning 
-- tokenization 
+- tokenizing
+- creating word2idx_inputs, word2idx_inputs dictionaries 
 - padding
 - shuffling
 - creating tensorflow's datasets from encoder_input, decoder_input, decoder_output
