@@ -1,13 +1,12 @@
 import re
 import tensorflow as tf
 from data_preprocessing import NMT_Data
-from Encoder_LSTM import EncoderLSTM
-from Decoder_LSTM import DecoderLSTM
+from EncoderLSTM import EncoderLSTM
+from DecoderLSTM import DecoderLSTM
 
 data = NMT_Data("deu.txt")
 EMBEDDING_DIM = 256
 LATENT_DIM = 1024
-
 
 test_data, training_data, \
 max_len_input, max_len_output, \

@@ -1,29 +1,32 @@
 import re
-
+import random 
 import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
-
 
 class NMT_Data:
     def __init__(self, data_path):
         self.data_path = data_path
         self.tokenize_input = None
 
+    def custom_shuffle(self, data_path, new_data_path):
+        with open(data_path, encoding="utf-8") as file1: 
+            lines = file1.readlines()
+        random.shuffle(lines)
+        with open(new_data_path, "w") as file2: 
+            file2.writelines(lines)
+        
     def preprocess(self):
-        # some config
+     
         BATCH_SIZE = 16
-        EPOCHS = 10
-        LATENT_DIM = 1024
         #NUM_SAMPLES = 10000  # Number of samples to train on. # 208486
-        MAX_NUM_WORDS = 20000
-        EMBEDDING_DIM = 256
-
+        
         input_seq = []
         input_target_sequences = []
         target_sequences = []
         #t = 0
         num_samples = 0
+        self.custom_shuffle(self.data_path, self.data_path)
         for line in open(self.data_path, encoding="utf8"):
             # t += 1
             # if t > NUM_SAMPLES:

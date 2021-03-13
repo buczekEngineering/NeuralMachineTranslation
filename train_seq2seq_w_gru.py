@@ -1,10 +1,9 @@
 import os
 import time
-
-from Encoder import Encoder
-from Decoder import Decoder
-from data_preprocessing import NMT_Data
 import tensorflow as tf
+from EncoderGRU import Encoder
+from DecoderGRU import Decoder
+from data_preprocessing import NMT_Data
 from loss import loss_custom
 from prediction import predict_sentence_GRU
 from evaluate import bleu_eval

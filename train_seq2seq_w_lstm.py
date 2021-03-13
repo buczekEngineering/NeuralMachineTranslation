@@ -1,10 +1,9 @@
 import os
 import time
-
-from Encoder_LSTM import EncoderLSTM
-from Decoder_LSTM import DecoderLSTM
-from data_preprocessing import NMT_Data
 import tensorflow as tf
+from EncoderLSTM import EncoderLSTM
+from DecoderLSTM import DecoderLSTM
+from data_preprocessing import NMT_Data
 from loss import loss_custom
 from prediction import predict_sentence_LSTM
 from evaluate import compute_bleu_LSTM
