@@ -46,7 +46,6 @@ def train_teacher_forcing_w_attn(encoder_in, decoder_in, decoder_out, encoder_st
         for i in range(decoder_in.shape[1]):
             decoder_in_t = decoder_in[:, i]
             decoder_pred_t, dec_h, dec_c, alignment = decoder(decoder_in_t, decoder_state, encoder_output)
-            decoder_state = [dec_h, dec_c]
 
             loss += loss_custom(decoder_out[:, i], decoder_pred_t)
 
