@@ -2,7 +2,7 @@
 The implementation of the neural machine translation using tensorflow. 
 
 ## Run
-You can directly run train_gru.py or train_lstm.py, depends on which neural network you want to use. GRU may be a little bit faster. The script contains data preprocessng, training, prediction on each epoch and evaluation with bleu score.
+You can directly run train_seq2seq_w_gru.py or train_seq2seq_w_lstm.py, depends on which neural network you want to use. GRU may be a little bit faster. The script contains data preprocessng, training, prediction on each epoch and evaluation with bleu score.
 
 ## Required packages: 
 - numpy 1.19.5
@@ -33,6 +33,9 @@ The prediction is picked using "Greedy Decoding".
 
 ## Training the Encoder-Decoder GRU model
 Run train_gru.py to train the model. Model subclassing: Encoder.py, Decoder.py
+
+## Attention Layer
+You can run train_seq2seq_w_attn.py to train LSTM encoder-decoder model with custom attention layer (AttentionLayer.py). Training is very slow.
 
 ## Model evaluation 
 Model is evaualte after the each epoch during the training, on the test data. For the evaluation was used a common machine translation metrc: BLEU("Bilingual Evaluation Understudy")
